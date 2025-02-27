@@ -22,10 +22,12 @@ app.use('/cart', require('./routes/cart'));
 
 // Запуск сервера
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
 
 // Запуск бота
-bot.launch();
+bot.launch()
+  .then(() => console.log('Бот запущен'))
+  .catch(err => console.error('Ошибка запуска бота:', err));
 
 // Функция для отправки заказа администратору
 const sendOrderToAdmin = (order) => {
