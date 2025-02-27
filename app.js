@@ -6,12 +6,15 @@ const config = require('./config');
 const app = express();
 const bot = new Telegraf(config.TELEGRAM_BOT_TOKEN);
 
+const cors = require('cors');
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(cors());
 
 // Routes
 app.use('/', require('./routes/index'));

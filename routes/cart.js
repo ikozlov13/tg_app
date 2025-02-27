@@ -53,5 +53,24 @@ const getProductById = (productId) => {
   ];
   return allProducts.find(product => product.id === productId);
 };
-
+// проверить логирование сервера
 module.exports = router;
+router.post('/add', (req, res) => {
+  console.log('Данные запроса:', req.body); // Логируем данные запроса
+  const { productId, size, color } = req.body;
+  const product = getProductById(productId);
+
+  if (product) {
+    console.log('Найден товар:', product); // Логируем найденный товар
+    const itemIndex = cart.findIndex(item => item.productId === productId && item.size === size && item.color === color);
+    if (itemIndex > -1) {
+      cart[itemIndex].quantity += 1;
+    } else {
+      cart.push({ ...product, size, color, quantity: 1 });
+    }
+    res.redirect('/cart');
+  } else {
+    console.error('Товар не найден'); // Логируем ошибку
+    res.status(404).json({ error: 'Товар не найден' });
+  }
+});
