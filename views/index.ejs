@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин одежды</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+      <h2>Добро пожаловать в наш магазин!</h2>
+      <div class="categories">
+        <a href="/women" class="category-link">
+          <img src="/images/women.jpg" alt="Женская одежда">
+          <span>Женская одежда</span>
+        </a>
+        <a href="/men" class="category-link">
+          <img src="/images/men.jpg" alt="Мужская одежда">
+          <span>Мужская одежда</span>
+        </a>
+        <a href="/home-textile" class="category-link">
+          <img src="/images/home-textile.jpg" alt="Домашний текстиль">
+          <span>Домашний текстиль</span>
+        </a>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
