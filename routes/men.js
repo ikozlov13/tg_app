@@ -10,4 +10,4 @@ router.get('/', (req, res) => {
   res.render('men', { products });
 });
 
-module.exports = { products, router }; // Экспортируем products и router
+module.exports = router; // Экспортируем только router
