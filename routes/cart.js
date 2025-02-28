@@ -50,9 +50,9 @@ router.post('/order', (req, res) => {
 
 // Вспомогательная функция для получения товара по ID
 const getProductById = (productId) => {
-  const womenProducts = require('./women').products;
-  const menProducts = require('./men').products;
-  const homeTextileProducts = require('./home-textile').products;
+  const womenProducts = require('./women').products || [];
+  const menProducts = require('./men').products || [];
+  const homeTextileProducts = require('./home-textile').products || [];
 
   const allProducts = [
     ...womenProducts,
